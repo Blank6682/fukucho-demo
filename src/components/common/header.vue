@@ -1,7 +1,7 @@
 <template>
   <header>
     <div
-      class="absolute z-50 flex justify-between w-full px-5 text-black bg-transparent "
+      class="absolute top-0 z-50 flex justify-between w-full px-5 text-black bg-transparent"
       style="height: 72px"
     >
       <div class="flex items-center justify-center h-full">
@@ -21,22 +21,19 @@
           >
             <a
               href=""
-              class="flex items-center justify-center h-full p-5 text-sm font-normal text-white "
+              class="flex items-center justify-center h-full p-5 text-sm font-normal text-white"
               ><span>{{ item }}</span>
             </a>
           </div>
         </nav>
       </div>
       <div class="flex">
-        <a
-          href=""
-          class="flex items-center justify-center px-3 py-1 text-center text-white align-middle "
-        >
+        <a href="" class="flex items-center justify-center px-3 py-1 text-center align-middle">
           <svg
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="mt-1 icon icon-search"
+            class="mt-1 text-white icon icon-search"
             height="25"
             viewBox="0 0 25 25"
             width="25"
@@ -47,15 +44,12 @@
           </svg>
         </a>
 
-        <a
-          href=""
-          class="flex items-center justify-center px-3 py-1 text-center text-white align-middle "
-        >
+        <a href="" class="flex items-center justify-center px-3 py-1 text-center align-middle">
           <svg
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="mt-1 icon icon-account"
+            class="mt-1 text-white icon icon-account"
             height="25"
             viewBox="0 0 25 25"
             width="25"
@@ -68,16 +62,13 @@
             ></path>
           </svg>
         </a>
-        <a
-          href=""
-          class="flex items-center justify-center px-3 py-1 text-center text-white align-middle "
-        >
+        <a href="" class="flex items-center justify-center px-3 py-1 text-center align-middle">
           <svg
             viewBox="0 0 25 25 "
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="mt-1 icon icon-cart"
+            class="mt-1 text-white icon icon-cart"
             width="25"
             height="25"
           >
@@ -100,8 +91,7 @@
 <script lang="ts" setup>
 import { ref } from "@vue/reactivity";
 
-const navList = ref(["お知らせ", "富久長の想い", "富久長の酒", "取扱店", "オンラインショップ"])
+const navList = ref(["お知らせ", "富久長の想い", "富久長の酒", "取扱店", "オンラインショップ"]);
 </script>
 
-<style>
-</style>
+<style></style>

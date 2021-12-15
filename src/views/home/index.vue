@@ -1,7 +1,7 @@
 <template>
   <Header />
   <div class="w-screen h-screen">
-    <img class="w-full h-full" src="../../assets/images/home-1.jpg" alt="" />
+    <img class="w-screen h-screen scale-125" src="../../assets/images/home-1.jpg" alt="" />
     <div class="absolute z-50 bottom-24 left-2/4 -translate-x-2/4">
       <svg
         style="width: 180px"
@@ -112,31 +112,56 @@
       </svg>
     </div>
   </div>
-  <section class="max-w-3xl mt-32">
-    <h2 class="mt-20 text-2xl leading-6 tracking-widest text-yellow-600">
-      News
-    </h2>
-    <div class="ml-auto" v-for="article in newArticles" :key="article.id">
-      <img v-if="article.imgUrl" :src="article.imgUrl" alt="" />
-      <div class="flex mt-5 leading-7">
-        <p>
+  <section class="max-w-3xl mx-auto mt-32">
+    <h2 class="title">News</h2>
+    <div
+      class="ml-auto border-b border-gray-200 border-solid py-3.5"
+      v-for="article in newArticles"
+      :key="article.id"
+    >
+      <img
+        v-if="article.imgUrl"
+        :src="article.imgUrl"
+        class="block object-cover w-full h-auto max-w-full mx-auto mb-5 max-h-80"
+        alt=""
+      />
+      <div class="flex items-center text-sm leading-7 text-yellow-500">
+        <p class="m-0">
           <time>{{ article.time }}</time>
         </p>
-        <div>{{ article.title }}</div>
+        <p class="ml-2.5">
+          <span
+            class="
+              text-xs text-center text-yellow-500
+              border border-gray-200 border-solid
+              py-0.5
+              px-1.5
+            "
+          >
+            {{ article.tags }}
+          </span>
+        </p>
       </div>
+      <h3 class="text-left text-base leading-7 mt-1.5 text-black font-medium">
+        {{ article.title }}
+      </h3>
     </div>
-    <div>すべてのお知らせを見る</div>
+    <div class="mt-10 text-base leading-7 text-center underline">すべてのお知らせを見る</div>
+  </section>
+  <section class="" style="margin: 120px 10vw 0">
+    <h2 class="title">Contents</h2>
   </section>
 </template>
 
 <script lang="ts" setup>
-import { ref } from '@vue/reactivity';
-import Header from '../../components/common/header.vue';
+import { ref } from "@vue/reactivity";
+import Header from "../../components/common/header.vue";
 const newArticles = ref([
   {
     id: Math.random(),
     title: "ウェブサイトリニューアル記念 プレゼントキャンペーンを実施中！",
-    imgUrl: "//cdn.shopifycdn.net/s/files/1/0587/1052/4079/articles/fukuucho_blog_2_1728_1080x.jpg?v=1638141710",
+    imgUrl:
+      "//cdn.shopifycdn.net/s/files/1/0587/1052/4079/articles/fukuucho_blog_2_1728_1080x.jpg?v=1638141710",
     time: "2021.11.24",
     tags: "キャンペーン",
   },
@@ -146,17 +171,19 @@ const newArticles = ref([
     imgUrl: "",
     time: "2021.11.23",
     tags: "お知らせ",
-  }, {
+  },
+  {
     id: Math.random(),
     title: "富久長ウェブサイトリニューアルオープンしました。",
     imgUrl: "",
     time: "2021.11.22",
     tags: "お知らせ",
-  }
-
-
-])
+  },
+]);
 </script>
 
-<style>
+<style scoped>
+.title {
+  @apply mt-20 mb-20 text-2xl font-normal leading-6 tracking-widest text-yellow-600;
+}
 </style>

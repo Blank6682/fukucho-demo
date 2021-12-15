@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Home from './views/home/index.vue'
+import Home from "./views/home/index.vue";
 </script>
 
 <template>
@@ -13,5 +13,7 @@ import Home from './views/home/index.vue'
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin: 0;
+  padding: 0;
 }
 </style>
