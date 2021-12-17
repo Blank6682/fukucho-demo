@@ -1,5 +1,5 @@
 
-export interface Contents {
+export interface ContentType {
     id:Number;
     title:String;
     detail:String;

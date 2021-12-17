@@ -8,8 +8,8 @@ import Home from "./views/home/index.vue";
 
 <style>
 #app {
-  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
-  font-family: "FOT-筑紫Cオールド明朝 Pr6N M";
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: "FOT-筑紫Cオールド明朝 Pr6N M"; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

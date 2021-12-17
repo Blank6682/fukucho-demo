@@ -1,7 +1,9 @@
 <template>
   <header>
     <div
-      class="absolute top-0 z-50 flex justify-between w-full px-5 text-black bg-transparent"
+      id="head"
+      class="top-0 z-50 flex justify-between w-full px-5 text-black bg-transparent"
+      :class="isScroll ? 'fixed' : 'absolute'"
       style="height: 72px"
     >
       <div class="flex items-center justify-center h-full">
@@ -22,7 +24,7 @@
             <a
               href=""
               class="flex items-center justify-center h-full p-5 text-sm font-normal text-white"
-              ><span>{{ item }}</span>
+              ><span>{{ item.title }}</span>
             </a>
           </div>
         </nav>
@@ -85,13 +87,158 @@
         </a>
       </div>
     </div>
+    <button class="fixed z-50">点击获取</button>
   </header>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
+import GetElementPosition from "../../hooks/GetElementPosition";
 
-const navList = ref(["お知らせ", "富久長の想い", "富久長の酒", "取扱店", "オンラインショップ"]);
+const navList = ref([
+  {
+    title: "お知らせ",
+    children: [],
+  },
+  {
+    title: "富久長の想い",
+    children: [],
+  },
+  {
+    title: "富久長の酒",
+    children: [
+      {
+        title: "すべてのお酒",
+        children: [
+          {
+            title: "八反草のお酒",
+          },
+          {
+            title: "海風土シリーズ",
+          },
+          {
+            title: "HENPEI & GENKEI",
+          },
+          {
+            title: "ロングセラー",
+          },
+          {
+            title: "季節限定酒",
+          },
+          {
+            title: "LEGACYシリーズ",
+          },
+        ],
+      },
+      {
+        title: "海外輸出商品",
+        children: [
+          {
+            title: "アメリカ",
+          },
+          {
+            title: "ヨーロッパ",
+          },
+          {
+            title: "アジア",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "取扱店",
+    children: [],
+  },
+  {
+    title: "オンラインショップ",
+    children: [
+      {
+        title: "キャンペーン・おすすめ商品",
+        children: [
+          {
+            title: "キャンペーン",
+          },
+          {
+            title: "おすすめ商品",
+          },
+          {
+            title: "生酒商品",
+          },
+        ],
+      },
+      {
+        title: "すべてのお酒",
+        children: [
+          {
+            title: "八反草のお酒",
+          },
+          {
+            title: "海風土シリーズ",
+          },
+          {
+            title: "HENPEI & GENKEI",
+          },
+          {
+            title: "ロングセラー",
+          },
+          {
+            title: "季節限定酒",
+          },
+          {
+            title: "LEGACYシリーズ",
+          },
+        ],
+      },
+      {
+        title: "ギフト・セット商品",
+        children: [
+          {
+            title: "セット商品",
+          },
+          {
+            title: "箱入り商品",
+          },
+          {
+            title: "ギフト包装・紙袋",
+          },
+        ],
+      },
+      {
+        title: "グッズ",
+        children: [
+          {
+            title: "酒器",
+          },
+          {
+            title: "その他",
+          },
+        ],
+      },
+    ],
+  },
+]);
+
+const isScroll = ref(false);
+let el: HTMLElement | null;
+let position: DOMRect | undefined;
+onMounted(() => {
+  el = document.getElementById("head");
+  document.addEventListener(
+    "scroll",
+    () => {
+      position = GetElementPosition(el);
+      console.log(position);
+      if (position && position.y < 0) {
+        isScroll.value = true;
+      } else if (position && !position.y) {
+        isScroll.value = false;
+      }
+    },
+    false
+  );
+});
 </script>
 
 <style></style>

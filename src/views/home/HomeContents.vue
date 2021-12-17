@@ -48,43 +48,17 @@
   <section>
     <div style="margin: 120px 10vw 0">
       <h2 class="title">Contents</h2>
-      <div class="flex w-full my-24" v-for="(item, index) in contents" :key="item.id">
-        <!-- 左边照片 -->
-        <div class="w-3/5 h-auto" v-if="index % 2 == 0">
-          <img class="w-full h-full" :src="item.imgUrl" alt="" />
-        </div>
-        <!-- 描述 -->
-        <div
-          class="flex items-center w-2/5 text-left"
-          :style="{ marginLeft: index % 2 == 0 ? '5vw' : '' }"
-        >
-          <div>
-            <h3 class="content-title">{{ item.title }}</h3>
-            <p class="mt-5 mb-10">
-              {{ item.detail }}
-            </p>
-            <div
-              class="flex items-center justify-between p-2 text-sm text-yellow-700 border border-yellow-700 cursor-pointer  w-44 hover:bg-yellow-700 hover:text-white"
-            >
-              <span>詳しく見る</span>
-              <img
-                class="w-4 h-auto"
-                src="//cdn.shopifycdn.net/s/files/1/0587/1052/4079/t/4/assets/icon_arrow_disc_primary.svg?v=3"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-        <!-- 右边照片 -->
-        <div class="w-3/5 h-auto" v-if="index % 2" :style="{ marginLeft: index % 2 ? '5vw' : '' }">
-          <img class="w-full h-full" :src="item.imgUrl" alt="" />
-        </div>
-      </div>
+      <template v-for="(item, index) in contents" :key="item.id">
+        <ContentIntroduction :item="item" :index="index" />
+      </template>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
+import ContentIntroduction from "../../components/ContentIntroduction.vue";
+import { ContentType } from "./type";
+
 const props = defineProps({
   contents: {
     type: Array,
@@ -100,9 +74,5 @@ const props = defineProps({
 <style scoped>
 .title {
   @apply mt-20 mb-20 text-2xl font-normal leading-6 tracking-widest text-yellow-700;
-}
-
-.content-title {
-  @apply text-2xl font-normal leading-6 tracking-widest text-black;
 }
 </style>

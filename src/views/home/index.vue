@@ -3,13 +3,15 @@
   <HomeShows />
   <HomeContents :newArticles="newArticles" :contents="contents" />
   <HomeOnlineShop />
+  <Footer />
 </template>
 
 <script lang="ts" setup>
-import Header from "../../components/common/header.vue";
+import Header from "../../components/common/Header.vue";
 import HomeShows from "./HomeShows.vue";
 import HomeContents from "./HomeContents.vue";
 import HomeOnlineShop from "./HomeOnlineShop.vue";
+import Footer from "../../components/common/Footer.vue";
 
 import { ref } from "@vue/reactivity";
 
