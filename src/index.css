@@ -3,7 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'FOT-筑紫Cオールド明朝 Pr6N M';
-    src: url('./assets/font/FOT-筑紫Cオールド明朝\ Pr6N\ M.ttf');
-}
+@layer base {
+    @font-face {
+      font-family: FOT-筑紫Cオールド明朝 Pr6N M;
+      font-weight: 400;
+      src: url('./assets/font/FOT-筑紫Cオールド明朝\ Pr6N\ M.ttf') format("ttf");
+    }
+    @font-face {
+      font-family: FOT-筑紫Cオールド明朝 Pr6N M;
+      font-weight: 500;
+      src: url('./assets/font/FOT-筑紫Cオールド明朝\ Pr6N\ M.ttf') format("ttf");
+    }
+  }

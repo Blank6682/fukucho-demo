@@ -2,40 +2,65 @@
   <header>
     <div
       id="head"
-      class="top-0 z-50 flex justify-between w-full px-5 text-black bg-transparent"
+      class="top-0 z-50 flex justify-between w-full px-[50px] lg:px-5 text-black bg-transparent"
       :class="isScroll ? 'fixed' : 'absolute'"
       style="height: 72px"
     >
+      <!-- logo -->
       <div class="flex items-center justify-center h-full">
-        <a class="block w-48">
+        <a class="block w-[190px]">
           <img
             src="//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/logo_header_white_900x.png?v=1637369622"
             alt=""
           />
         </a>
       </div>
-      <div>
+      <!-- 导航栏 -->
+      <div class="hidden lg:flex">
         <nav class="flex h-full">
           <div
-            class="hover:border-yellow-600 hover:border-b-2"
+            class="hover:border-theme hover:border-b-2"
             v-for="(item, index) in navList"
             :key="'navTitle' + index"
           >
             <a
               href=""
-              class="flex items-center justify-center h-full p-5 text-sm font-normal text-white"
+              class="
+                flex
+                items-center
+                justify-center
+                h-full
+                pt-5
+                px-5
+                pb-[15px]
+                text-sm
+                font-normal
+                text-white
+              "
               ><span>{{ item.title }}</span>
             </a>
           </div>
         </nav>
       </div>
+      <!-- 右侧图标 -->
       <div class="flex">
-        <a href="" class="flex items-center justify-center px-3 py-1 text-center align-middle">
+        <a
+          href=""
+          class="
+            flex
+            items-center
+            justify-center
+            pr-[10px]
+            lg:px-[11px] lg:py-[5px]
+            text-center
+            align-middle
+          "
+        >
           <svg
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="mt-1 text-white icon icon-search"
+            class="mt-[3px] text-white icon icon-search"
             height="25"
             viewBox="0 0 25 25"
             width="25"
@@ -46,12 +71,23 @@
           </svg>
         </a>
 
-        <a href="" class="flex items-center justify-center px-3 py-1 text-center align-middle">
+        <a
+          href=""
+          class="
+            flex
+            items-center
+            justify-center
+            pr-[10px]
+            lg:px-[11px] lg:py-[5px]
+            text-center
+            align-middle
+          "
+        >
           <svg
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="mt-1 text-white icon icon-account"
+            class="[3px] text-white icon icon-account"
             height="25"
             viewBox="0 0 25 25"
             width="25"
@@ -64,13 +100,16 @@
             ></path>
           </svg>
         </a>
-        <a href="" class="flex items-center justify-center px-3 py-1 text-center align-middle">
+        <a
+          href=""
+          class="flex items-center justify-center lg:pl-[11px] lg:py-[5px] text-center align-middle"
+        >
           <svg
             viewBox="0 0 25 25 "
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="mt-1 text-white icon icon-cart"
+            class="mt-[3px] text-white icon icon-cart"
             width="25"
             height="25"
           >
@@ -86,8 +125,27 @@
           </svg>
         </a>
       </div>
+      <div
+        class="
+          fixed
+          right-3
+          bottom-3
+          w-[60px]
+          h-[60px]
+          rounded-full
+          bg-white
+          shadow-sm
+          z-50
+          border border-solid border-gray-300
+        "
+      >
+        <span class="w-1/2 h-[1px] border border-solid border-theme mb-1"> 111</span>
+        <span class="w-1/2 border border-solid border-theme mb-1"></span>
+        <span class="w-1/2 border border-solid border-theme mb-1"></span>
+      </div>
     </div>
-    <button class="fixed z-50">点击获取</button>
+
+    <!-- <button class="fixed z-50">点击获取</button> -->
   </header>
 </template>
 

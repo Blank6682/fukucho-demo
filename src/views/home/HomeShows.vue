@@ -1,8 +1,7 @@
 <template>
-  <div class="w-screen h-screen">
-    <img class="w-screen h-screen scale-125" src="../../assets/images/home-1.jpg" alt="" />
+  <div class="w-full h-screen relative">
+    <img class="w-full h-full" src="../../assets/images/home-1.jpg" alt="" />
     <div class="absolute z-50 transform bottom-24 left-2/4 -translate-x-2/4">
-      111
       <svg
         class="h-auto w-44"
         width="110"
@@ -110,9 +109,32 @@
         </defs>
       </svg>
     </div>
+    <div>
+      <ul class="flex absolute left-1/2 bottom-[47px] transform -translate-x-2/4">
+        <li class="w-5 h-0.5 bg-white ml-2"></li>
+        <li class="w-5 h-0.5 bg-white ml-2"></li>
+        <li class="w-5 h-0.5 bg-white ml-2"></li>
+        <li class="w-5 h-0.5 bg-white ml-2"></li>
+      </ul>
+    </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import { ref } from "@vue/reactivity";
 
-<style></style>
+const showList = ref([]);
+</script>
+<style scoped>
+#home-photo {
+  animation: photoScale 2s ease-out 1;
+}
+@keyframes photoScale {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>

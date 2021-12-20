@@ -1,7 +1,7 @@
 <template>
   <!-- 回到顶部 -->
   <div class="flex items-center justify-center mt-20 mb-12 mx-0">
-    <a class="block w-14 h-14 relative border border-solid border-gray-200 rounded-full">
+    <a class="block w-14 h-14 relative border border-solid border-gray-300 rounded-full">
       <img
         class="absolute top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 w-10 h-10"
         src="//cdn.shopifycdn.net/s/files/1/0587/1052/4079/t/4/assets/icon_pagetop.svg?v=1753606108386969985"
@@ -13,7 +13,7 @@
     <!--底部 导航栏 -->
     <div class="flex-wrap flex justify-center list-none mb-20">
       <div class="w-1/3 p-0 text-left my-0" v-for="nav in navList" :key="'footNav' + nav.id">
-        <h4 class="text-yellow-600 text-sm leading-normal m0 p0">{{ nav.title }}</h4>
+        <h4 class="text-theme text-sm leading-normal m0 p0">{{ nav.title }}</h4>
         <ul class="list-none ml-0 text-xs leading-relaxed mt-5">
           <li
             class="mb-4 text-black"
@@ -105,7 +105,7 @@
     <!-- 底部送信 -->
     <div class="flex items-center justify-center">
       <div>
-        <h4 class="text-yellow-600 text-sm leading-normal m0 p0">NewsLetter</h4>
+        <h4 class="text-theme text-sm leading-normal m0 p0">NewsLetter</h4>
         <p class="mt-5 text-sm">
           富久長の最新情報や商品の入荷情報などを、ニュースレターでお知らせしています。
         </p>
@@ -132,7 +132,7 @@
         src="//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/logo_footer_be642cf4-15eb-45cd-8b9a-f072c80f66b4_240x.png?v=1637120223"
         alt=""
       />
-      <a href="" class="mt-10 text-center text-sm text-yellow-400">©Imada Sake Brewing Co., Ltd.</a>
+      <a href="" class="mt-10 text-center text-sm text-theme">©Imada Sake Brewing Co., Ltd.</a>
     </div>
   </div>
 </template>

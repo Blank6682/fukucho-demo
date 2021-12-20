@@ -1,42 +1,75 @@
 <template>
   <section>
-    <div class="w-screen h-auto mx-auto mt-32">
+    <div class="w-full h-auto mx-auto mt-[120px]">
       <h2 class="title">Online Shop</h2>
-      <div
-        class="w-screen"
-        style="
-          height: 48vh;
-          background: url('https://cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/fukucho_web_lineup_5_seasonal_resize_1950x.jpg?v=1636104382');
-        "
-      >
-        <img class="w-screen" src="" alt="" />
+      <div class="relative w-full min-h-[307px] h-[500px] overflow-hidden">
+        <div class="relative w-full h-full">
+          <div id="online-bg" class="absolute top-0 right-0 z-[1] w-full h-full min-h-full"></div>
+        </div>
+
+        <div
+          class="
+            absolute
+            left-1/2
+            top-1/2
+            m-[50px]
+            max-w-[50%]
+            text-center text-white
+            transform
+            -translate-x-1/2 -translate-y-1/2
+            z-[50]
+          "
+        >
+          <p class="text-[32px]">オンラインショップ</p>
+          <p class="mt-[0.875em] leading-6 mb-6">
+            富久長のお酒のほか <br />
+            おすすめの酒器やセット商品などを<br />
+            ご注文いただけます。
+          </p>
+          <a
+            href="#"
+            class="
+              text-sm
+              border border-solid border-white
+              py-[9px]
+              px-4
+              leading-[.12em]
+              bg-transparent
+              hover:bg-white hover:text-black
+              transition-colors
+            "
+          >
+            すべての商品を見る
+          </a>
+        </div>
       </div>
     </div>
   </section>
+  <!-- 商品区 -->
   <section>
-    <div class="w-screen h-auto" style="padding: 90px 5vw 0">
+    <div class="w-full h-auto pt-[90px] px-[5vw]">
       <h2 class="title">おすすめ商品</h2>
-      <div class="w-full flex flex-wrap" style="padding: 40px 5vw 0">
+      <div class="w-full flex flex-wrap pt-[40px] px-[5vw]">
         <div
-          class="w-1/4 px-3 text-left hover:text-yellow-500"
+          class="w-1/4 px-[10px] text-left hover:text-theme transition-colors"
           v-for="product in productList"
           :key="product.title"
         >
-          <img class="w-screen" :src="product.imgUrl" alt="" />
-          <div class="py-3 px-5">
-            <p class="my-2 text-base transition-all">{{ product.title }}</p>
-            <p class="text-xs text-yellow-500">
+          <img class="w-full" :src="product.imgUrl" alt="" />
+          <div class="py-[9px] px-[18px]">
+            <p class="mt-[7px] mb-1 text-base leading-6 transition-all">{{ product.title }}</p>
+            <p class="text-[13px] leading-7 text-theme">
               {{ product.price.toLocaleString("en") }} <span>円 （税込）</span>
               <span v-if="product.price">~</span>
             </p>
           </div>
         </div>
       </div>
-      <p href="#" class="pt-5 underline">すべてのおすすめ商品を見る</p>
+      <p href="#" class="pt-5 text-sm underline">すべてのおすすめ商品を見る</p>
     </div>
   </section>
   <section>
-    <div style="padding: 90px 10vw 0">
+    <div class="pt-[90px] px-[10vw]">
       <h2 class="title">Company</h2>
       <ContentIntroduction :item="companyInfo" />
     </div>
@@ -107,6 +140,11 @@ const companyInfo = ref({
 
 <style scoped>
 .title {
-  @apply mt-20 mb-20 text-2xl font-normal leading-6 tracking-widest text-yellow-700;
+  @apply m-0 p-0 text-[26px] font-normal leading-6 tracking-[1px] text-theme first:mb-20;
+}
+#online-bg {
+  background: url("https://cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/fukucho_web_lineup_5_seasonal_resize_1950x.jpg?v=1636104382")
+    center center;
+  background-size: cover;
 }
 </style>

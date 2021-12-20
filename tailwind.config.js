@@ -1,8 +1,12 @@
 module.exports = {
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  darkMode: 'media', // or 'media' or 'class' or 'false'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'theme': '#a58c78'
+      }
+    },
   },
   variants: {
     extend: {
