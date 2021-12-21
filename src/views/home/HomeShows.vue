@@ -1,6 +1,14 @@
 <template>
-  <div class="w-full h-screen relative">
-    <img class="w-full h-full" src="../../assets/images/home-1.jpg" alt="" />
+  <div class="relative w-[100vw-0px] h-screen pb-[72px] sm:pb-0 overflow-hidden">
+    <div v-for="(item, index) in showImageList" :key="'img' + index">
+      <img
+        id="home-photo"
+        class="absolute w-full h-full"
+        v-if="ativeIndex == index"
+        :src="item.url"
+        alt=""
+      />
+    </div>
     <div class="absolute z-50 transform bottom-24 left-2/4 -translate-x-2/4">
       <svg
         class="h-auto w-44"
@@ -111,10 +119,13 @@
     </div>
     <div>
       <ul class="flex absolute left-1/2 bottom-[47px] transform -translate-x-2/4">
-        <li class="w-5 h-0.5 bg-white ml-2"></li>
-        <li class="w-5 h-0.5 bg-white ml-2"></li>
-        <li class="w-5 h-0.5 bg-white ml-2"></li>
-        <li class="w-5 h-0.5 bg-white ml-2"></li>
+        <template v-for="(item, index) in showImageList" :key="'switchImg' + index">
+          <li
+            class="w-5 h-0.5 py-3 ml-2 text-center cursor-pointer border-b-[2px] border-solid"
+            :class="ativeIndex == index ? 'border-theme' : 'border-white'"
+            @click="handleSwitchImage(index)"
+          ></li>
+        </template>
       </ul>
     </div>
   </div>
@@ -122,8 +133,39 @@
 
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
 
-const showList = ref([]);
+const showImageList = ref([
+  {
+    url: "//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/fukuucho_top_slide_1_resize_d8b684dd-6ecb-4285-9e14-91e9a34127d9_720x.jpg?v=1636687788",
+  },
+  {
+    url: "//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/fukuucho_top_slide_2_resize_1080x.jpg?v=1636686606",
+  },
+  {
+    url: "//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/fukuucho_top_slide_4_resize_720x.jpg?v=1636686488",
+  },
+  {
+    url: "//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/fukuucho_top_slide_3_resize_1080x.jpg?v=1636686718",
+  },
+]);
+
+const ativeIndex = ref(0);
+
+onMounted(() => {
+  setInterval(() => {
+    if (ativeIndex.value == showImageList.value.length - 1) {
+      ativeIndex.value = 0;
+      clearInterval();
+    } else {
+      ativeIndex.value++;
+    }
+  }, 5000);
+});
+
+const handleSwitchImage = (index: number) => {
+  ativeIndex.value = index;
+};
 </script>
 <style scoped>
 #home-photo {
@@ -131,7 +173,7 @@ const showList = ref([]);
 }
 @keyframes photoScale {
   0% {
-    transform: scale(1.3);
+    transform: scale(1.25);
   }
   100% {
     transform: scale(1);

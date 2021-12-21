@@ -65,7 +65,7 @@ const props = defineProps({
   },
   newArticles: {
     type: Array,
-    defalut: [],
+    defalut: () => [],
   },
 });
 </script>

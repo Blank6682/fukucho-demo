@@ -2,9 +2,8 @@
   <header>
     <div
       id="head"
-      class="top-0 z-50 flex justify-between w-full px-[50px] lg:px-5 text-black bg-transparent"
-      :class="isScroll ? 'fixed' : 'absolute'"
-      style="height: 72px"
+      class="flex justify-between top-0 h-[72px] w-full px-[50px] lg:px-5 text-black z-50 bg-white"
+      :class="isFixed ? 'fixed' : 'absolute'"
     >
       <!-- logo -->
       <div class="flex items-center justify-center h-full">
@@ -17,12 +16,8 @@
       </div>
       <!-- 导航栏 -->
       <div class="hidden lg:flex">
-        <nav class="flex h-full">
-          <div
-            class="hover:border-theme hover:border-b-2"
-            v-for="(item, index) in navList"
-            :key="'navTitle' + index"
-          >
+        <nav class="relative flex h-full">
+          <div id="nav-title" v-for="(item, index) in navList" :key="'navTitle' + index">
             <a
               href=""
               class="
@@ -37,7 +32,7 @@
                 font-normal
                 text-white
               "
-              ><span>{{ item.title }}</span>
+              ><span>{{ item?.title }}</span>
             </a>
           </div>
         </nav>
@@ -125,27 +120,7 @@
           </svg>
         </a>
       </div>
-      <div
-        class="
-          fixed
-          right-3
-          bottom-3
-          w-[60px]
-          h-[60px]
-          rounded-full
-          bg-white
-          shadow-sm
-          z-50
-          border border-solid border-gray-300
-        "
-      >
-        <span class="w-1/2 h-[1px] border border-solid border-theme mb-1"> 111</span>
-        <span class="w-1/2 border border-solid border-theme mb-1"></span>
-        <span class="w-1/2 border border-solid border-theme mb-1"></span>
-      </div>
     </div>
-
-    <!-- <button class="fixed z-50">点击获取</button> -->
   </header>
 </template>
 
@@ -154,131 +129,14 @@ import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import GetElementPosition from "../../hooks/GetElementPosition";
 
-const navList = ref([
-  {
-    title: "お知らせ",
-    children: [],
+const props = defineProps({
+  navList: {
+    type: Array,
+    defalut: () => [],
   },
-  {
-    title: "富久長の想い",
-    children: [],
-  },
-  {
-    title: "富久長の酒",
-    children: [
-      {
-        title: "すべてのお酒",
-        children: [
-          {
-            title: "八反草のお酒",
-          },
-          {
-            title: "海風土シリーズ",
-          },
-          {
-            title: "HENPEI & GENKEI",
-          },
-          {
-            title: "ロングセラー",
-          },
-          {
-            title: "季節限定酒",
-          },
-          {
-            title: "LEGACYシリーズ",
-          },
-        ],
-      },
-      {
-        title: "海外輸出商品",
-        children: [
-          {
-            title: "アメリカ",
-          },
-          {
-            title: "ヨーロッパ",
-          },
-          {
-            title: "アジア",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "取扱店",
-    children: [],
-  },
-  {
-    title: "オンラインショップ",
-    children: [
-      {
-        title: "キャンペーン・おすすめ商品",
-        children: [
-          {
-            title: "キャンペーン",
-          },
-          {
-            title: "おすすめ商品",
-          },
-          {
-            title: "生酒商品",
-          },
-        ],
-      },
-      {
-        title: "すべてのお酒",
-        children: [
-          {
-            title: "八反草のお酒",
-          },
-          {
-            title: "海風土シリーズ",
-          },
-          {
-            title: "HENPEI & GENKEI",
-          },
-          {
-            title: "ロングセラー",
-          },
-          {
-            title: "季節限定酒",
-          },
-          {
-            title: "LEGACYシリーズ",
-          },
-        ],
-      },
-      {
-        title: "ギフト・セット商品",
-        children: [
-          {
-            title: "セット商品",
-          },
-          {
-            title: "箱入り商品",
-          },
-          {
-            title: "ギフト包装・紙袋",
-          },
-        ],
-      },
-      {
-        title: "グッズ",
-        children: [
-          {
-            title: "酒器",
-          },
-          {
-            title: "その他",
-          },
-        ],
-      },
-    ],
-  },
-]);
+});
 
-const isScroll = ref(false);
+const isFixed = ref(false);
 let el: HTMLElement | null;
 let position: DOMRect | undefined;
 onMounted(() => {
@@ -289,9 +147,9 @@ onMounted(() => {
       position = GetElementPosition(el);
       console.log(position);
       if (position && position.y < 0) {
-        isScroll.value = true;
+        isFixed.value = true;
       } else if (position && !position.y) {
-        isScroll.value = false;
+        isFixed.value = false;
       }
     },
     false
@@ -299,4 +157,18 @@ onMounted(() => {
 });
 </script>
 
-<style></style>
+<style scoped>
+/* #nav-title:hover:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100px;
+  height: 2px;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  z-index: 999;
+  background: currentColor;
+  transform: translateX(0);
+} */
+</style>

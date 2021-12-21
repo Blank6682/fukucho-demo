@@ -1,8 +1,13 @@
 <template>
-  <Header />
+  <Header :navList="navList" />
+
   <HomeShows />
+  <DelayShow delay="4s" direction="top" distance="100px" class="z-50">
+    <img src="../../assets/images//home-2.jpg" width="400" height="400" alt="" />
+  </DelayShow>
   <HomeContents :newArticles="newArticles" :contents="contents" />
   <HomeOnlineShop />
+  <SibeNavDrawer :navList="navList" />
   <Footer />
 </template>
 
@@ -12,8 +17,134 @@ import HomeShows from "./HomeShows.vue";
 import HomeContents from "./HomeContents.vue";
 import HomeOnlineShop from "./HomeOnlineShop.vue";
 import Footer from "../../components/common/Footer.vue";
+import DelayShow from "../../components/common/DelayShow.vue";
 
+import SibeNavDrawer from "../../components/common/SibeNavDrawer.vue";
 import { ref } from "@vue/reactivity";
+
+const navList = ref([
+  {
+    title: "お知らせ",
+    children: [],
+  },
+  {
+    title: "富久長の想い",
+    children: [],
+  },
+  {
+    title: "富久長の酒",
+    children: [
+      {
+        title: "すべてのお酒",
+        children: [
+          {
+            title: "八反草のお酒",
+          },
+          {
+            title: "海風土シリーズ",
+          },
+          {
+            title: "HENPEI & GENKEI",
+          },
+          {
+            title: "ロングセラー",
+          },
+          {
+            title: "季節限定酒",
+          },
+          {
+            title: "LEGACYシリーズ",
+          },
+        ],
+      },
+      {
+        title: "海外輸出商品",
+        children: [
+          {
+            title: "アメリカ",
+          },
+          {
+            title: "ヨーロッパ",
+          },
+          {
+            title: "アジア",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "取扱店",
+    children: [],
+  },
+  {
+    title: "オンラインショップ",
+    children: [
+      {
+        title: "キャンペーン・おすすめ商品",
+        children: [
+          {
+            title: "キャンペーン",
+          },
+          {
+            title: "おすすめ商品",
+          },
+          {
+            title: "生酒商品",
+          },
+        ],
+      },
+      {
+        title: "すべてのお酒",
+        children: [
+          {
+            title: "八反草のお酒",
+          },
+          {
+            title: "海風土シリーズ",
+          },
+          {
+            title: "HENPEI & GENKEI",
+          },
+          {
+            title: "ロングセラー",
+          },
+          {
+            title: "季節限定酒",
+          },
+          {
+            title: "LEGACYシリーズ",
+          },
+        ],
+      },
+      {
+        title: "ギフト・セット商品",
+        children: [
+          {
+            title: "セット商品",
+          },
+          {
+            title: "箱入り商品",
+          },
+          {
+            title: "ギフト包装・紙袋",
+          },
+        ],
+      },
+      {
+        title: "グッズ",
+        children: [
+          {
+            title: "酒器",
+          },
+          {
+            title: "その他",
+          },
+        ],
+      },
+    ],
+  },
+]);
 
 const newArticles = ref([
   {
