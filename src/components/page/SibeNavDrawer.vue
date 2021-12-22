@@ -1,6 +1,6 @@
 <template>
-  <div class="sibe-nav min-w-[380px] z-[999]" v-if="isShow">
-    <div class="mt-[108px]">
+  <div class="sibe-nav" v-if="isShow">
+    <div class="mt-[48px]">
       <div v-for="(item, index) in navList" :key="index" class="mx-2">
         <a href="#" class="sibe-title">
           <span> {{ item.title }}</span>
@@ -110,7 +110,7 @@ const isShow = ref(false);
 <style scoped>
 .sibe-nav {
   animation: toShow 0.5s ease 1;
-  @apply absolute top-0 left-0 w-[50vw] min-h-screen bg-white;
+  @apply absolute min-w-[380px] z-[999] top-0 left-0 mt-[60px] w-[50vw] min-h-screen bg-white hover:overflow-y-scroll;
 }
 
 .sibe-title {

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full h-[90vh] min-h-[120px] pb-[72px] sm:pb-0 overflow-hidden">
+  <div class="relative w-full h-[90vh] min-h-[120px] pb-[72px] overflow-hidden sm:pb-0 lg:h-screen">
     <div v-for="(item, index) in showImageList" :key="'img' + index">
       <img
         id="home-photo"

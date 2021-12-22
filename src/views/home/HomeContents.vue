@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import ContentIntroduction from "../../components/page/ContentIntroduction.vue";
+import ContentIntroduction from "../../components/ContentIntroduction.vue";
 import { ContentType } from "./type";
 
 const props = defineProps({
