@@ -2,9 +2,9 @@
   <Header :navList="navList" />
 
   <HomeShows />
-  <DelayShow delay="4s" direction="top" distance="100px" class="z-50">
+  <!-- <DelayShow delay="4s" direction="top" distance="100px" class="z-50">
     <img src="../../assets/images//home-2.jpg" width="400" height="400" alt="" />
-  </DelayShow>
+  </DelayShow> -->
   <HomeContents :newArticles="newArticles" :contents="contents" />
   <HomeOnlineShop />
   <SibeNavDrawer :navList="navList" />
@@ -12,14 +12,14 @@
 </template>
 
 <script lang="ts" setup>
-import Header from "../../components/common/Header.vue";
+import Header from "../../components/page/header.vue";
 import HomeShows from "./HomeShows.vue";
 import HomeContents from "./HomeContents.vue";
 import HomeOnlineShop from "./HomeOnlineShop.vue";
-import Footer from "../../components/common/Footer.vue";
-import DelayShow from "../../components/common/DelayShow.vue";
+import Footer from "../../components/page/Footer.vue";
+import DelayShow from "../../components/page/DelayShow.vue";
 
-import SibeNavDrawer from "../../components/common/SibeNavDrawer.vue";
+import SibeNavDrawer from "../../components/page/SibeNavDrawer.vue";
 import { ref } from "@vue/reactivity";
 
 const navList = ref([

@@ -1,5 +1,5 @@
 <template>
-  <div class="sibe-nav min-w-[380px]" v-if="isShow">
+  <div class="sibe-nav min-w-[380px] z-[999]" v-if="isShow">
     <div class="mt-[108px]">
       <div v-for="(item, index) in navList" :key="index" class="mx-2">
         <a href="#" class="sibe-title">
@@ -7,13 +7,13 @@
           <span v-if="item.children.length" class="sibe-title-icon"></span>
         </a>
       </div>
-      <div class="mt-[26px]">
+      <div class="mt-[26px] mx-2">
         <a href="" class="sibe-title">トップページ</a>
         <a href="" class="sibe-title">会社案内</a>
         <a href="" class="sibe-title">採用情報</a>
         <a href="" class="sibe-title">お問い合わせ</a>
       </div>
-      <div class="flex items-center justify-start mt-11">
+      <div class="flex items-center justify-start mx-2 mt-11">
         <ul class="flex">
           <li class="mx-3">
             <a href="#" title="富久長｜FUKUCHO on Instagram">
@@ -69,6 +69,23 @@
         </ul>
       </div>
     </div>
+    <div class="mx-4 mt-10 text-left cursor-pointer">
+      <a class="relative py-3 pl-4 text-sm border border-gray-300 border-solid pr-9">
+        <span>Japanese</span>
+        <span
+          class="
+            absolute
+            top-[15px]
+            right-3
+            w-[7px]
+            h-[7px]
+            transform
+            rotate-45
+            border-b border-r border-solid border-theme
+          "
+        ></span>
+      </a>
+    </div>
   </div>
 
   <div class="sibe-nav-button" :class="isShow ? 'sibe-show-btn' : ''" @click="isShow = !isShow">
@@ -108,13 +125,17 @@ const isShow = ref(false);
   transition: all 0.3s ease;
 }
 .sibe-nav-button {
-  @apply fixed flex flex-col items-center justify-center right-3 bottom-3 w-[60px] h-[60px] rounded-full bg-white shadow-sm border border-solid border-gray-300 z-50;
+  transition: all 0.5s ease;
+  @apply fixed flex flex-col items-center justify-center right-3 bottom-3 w-[60px] h-[60px] rounded-full bg-white shadow z-50;
 }
 .sibe-btn-child {
   transition: all 0.5s ease;
-  @apply block w-3/5 h-[1px] mb-[6px] border-b border-solid border-theme;
+  @apply block w-[56%] h-[1px] mb-[6px] bg-theme;
 }
 
+.sibe-show-btn {
+  transform: translateX(15px);
+}
 .sibe-show-btn .sibe-btn-child:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -123,7 +144,7 @@ const isShow = ref(false);
   transform: translateY(0px) rotate(-45deg);
 }
 .sibe-show-btn .sibe-btn-child:nth-child(3) {
-  @apply border-none;
+  @apply bg-white;
 }
 
 @keyframes toShow {

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-[100vw-0px] h-screen pb-[72px] sm:pb-0 overflow-hidden">
+  <div class="relative w-full h-[90vh] min-h-[120px] pb-[72px] sm:pb-0 overflow-hidden">
     <div v-for="(item, index) in showImageList" :key="'img' + index">
       <img
         id="home-photo"
@@ -11,7 +11,7 @@
     </div>
     <div class="absolute z-50 transform bottom-24 left-2/4 -translate-x-2/4">
       <svg
-        class="h-auto w-44"
+        class="w-[121px] h-auto lg:w-44"
         width="110"
         height="120"
         viewBox="0 0 110 120"
@@ -118,7 +118,7 @@
       </svg>
     </div>
     <div>
-      <ul class="flex absolute left-1/2 bottom-[47px] transform -translate-x-2/4">
+      <ul class="flex absolute left-1/2 bottom-[30px] transform -translate-x-2/4 lg:bottom-[47px]">
         <template v-for="(item, index) in showImageList" :key="'switchImg' + index">
           <li
             class="w-5 h-0.5 py-3 ml-2 text-center cursor-pointer border-b-[2px] border-solid"

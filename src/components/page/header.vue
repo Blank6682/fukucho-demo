@@ -2,12 +2,24 @@
   <header>
     <div
       id="head"
-      class="flex justify-between top-0 h-[72px] w-full px-[50px] lg:px-5 text-black z-50 bg-white"
+      class="
+        flex
+        justify-between
+        top-0
+        h-[59px]
+        w-full
+        pl-4
+        pr-[15px]
+        text-black
+        z-50
+        sm:h-[72px]
+        lg:px-5
+      "
       :class="isFixed ? 'fixed' : 'absolute'"
     >
       <!-- logo -->
       <div class="flex items-center justify-center h-full">
-        <a class="block w-[190px]">
+        <a class="block w-[156px] lg:w-[190px]">
           <img
             src="//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/logo_header_white_900x.png?v=1637369622"
             alt=""
@@ -38,7 +50,7 @@
         </nav>
       </div>
       <!-- 右侧图标 -->
-      <div class="flex">
+      <div class="flex text-white">
         <a
           href=""
           class="
@@ -55,7 +67,7 @@
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="mt-[3px] text-white icon icon-search"
+            class="icon icon-search mt-[3px] fill-current"
             height="25"
             viewBox="0 0 25 25"
             width="25"
@@ -82,7 +94,7 @@
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="[3px] text-white icon icon-account"
+            class="icon icon-account mt-[3px] fill-current"
             height="25"
             viewBox="0 0 25 25"
             width="25"
@@ -104,7 +116,7 @@
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="mt-[3px] text-white icon icon-cart"
+            class="icon icon-cart mt-[3px] fill-current"
             width="25"
             height="25"
           >
