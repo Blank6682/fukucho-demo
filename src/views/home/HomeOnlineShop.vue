@@ -78,7 +78,7 @@
 
 <script lang="ts" setup>
 import { ref } from "@vue/reactivity";
-import ContentIntroduction from "../../components/ContentIntroduction.vue";
+import ContentIntroduction from "../../components/page/ContentIntroduction.vue";
 
 const productList = ref([
   {

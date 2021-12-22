@@ -1,10 +1,10 @@
 <template>
   <!-- News -->
   <section>
-    <div class="max-w-[48vw] mx-auto mt-[120px]">
+    <div class="px-[30px] mx-auto mt-[80px] lg:mt-[120px] lg:max-w-[48vw]">
       <h2 class="title">News</h2>
       <div
-        class="ml-auto border-b border-gray-300 border-solid py-[13px]"
+        class="ml-auto border-b border-gray-300 border-solid"
         v-for="article in newArticles"
         :key="article.id"
       >
@@ -14,7 +14,7 @@
           :src="article.imgUrl"
           alt=""
         />
-        <div class="cursor-pointer hover:text-theme">
+        <div class="py-2 cursor-pointer hover:text-theme">
           <div class="flex items-center text-sm leading-7 text-theme">
             <p class="m-0">
               <time>{{ article.time }}</time>
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import ContentIntroduction from "../../components/ContentIntroduction.vue";
+import ContentIntroduction from "../../components/page/ContentIntroduction.vue";
 import { ContentType } from "./type";
 
 const props = defineProps({
@@ -72,6 +72,6 @@ const props = defineProps({
 
 <style scoped>
 .title {
-  @apply m-0 p-0 text-[26px] font-normal leading-6 tracking-[1px] text-theme first:mb-20;
+  @apply m-0 p-0 text-[26px] font-normal leading-6 tracking-[1px] text-theme first:mb-[45px];
 }
 </style>
