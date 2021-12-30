@@ -1,20 +1,20 @@
 <template>
   <!-- 回到顶部 -->
-  <div class="flex items-center justify-center mt-20 mb-12 mx-0">
-    <a class="block w-14 h-14 relative border border-solid border-gray-300 rounded-full">
+  <div class="flex items-center justify-center mx-0 mt-20 mb-12">
+    <a class="relative block border border-gray-300 border-solid rounded-full w-14 h-14">
       <img
-        class="absolute top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 w-10 h-10"
+        class="absolute w-10 h-10 transform top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4"
         src="//cdn.shopifycdn.net/s/files/1/0587/1052/4079/t/4/assets/icon_pagetop.svg?v=1753606108386969985"
         alt=""
       />
     </a>
   </div>
-  <div style="padding: 80px 10vw 50px; background: #fbfaf7">
+  <div class="px-[30px] md:px-[10vw] pb-[50px] bg-[#fbfaf7]">
     <!--底部 导航栏 -->
-    <div class="flex-wrap flex justify-center list-none mb-20">
-      <div class="w-1/3 p-0 text-left my-0" v-for="nav in navList" :key="'footNav' + nav.id">
-        <h4 class="text-theme text-sm leading-normal m0 p0">{{ nav.title }}</h4>
-        <ul class="list-none ml-0 text-xs leading-relaxed mt-5">
+    <div class="flex flex-col flex-wrap justify-center mb-20 list-none">
+      <div class="w-1/3 pt-10 my-0 text-left" v-for="nav in navList" :key="'footNav' + nav.id">
+        <h4 class="text-sm leading-normal text-theme m0 p0">{{ nav.title }}</h4>
+        <ul class="mt-5 ml-0 text-xs leading-relaxed list-none">
           <li
             class="mb-4 text-black"
             v-for="(item, index) in nav.children"
@@ -35,7 +35,7 @@
               aria-hidden="true"
               focusable="false"
               role="presentation"
-              class="icon icon-instagram w-6 h-6 text-black"
+              class="w-6 h-6 text-black icon icon-instagram"
               viewBox="0 0 512 512"
             >
               <path
@@ -54,7 +54,7 @@
               aria-hidden="true"
               focusable="false"
               role="presentation"
-              class="icon icon-facebook w-6 h-6 text-black"
+              class="w-6 h-6 text-black icon icon-facebook"
               viewBox="0 0 20 20"
             >
               <path
@@ -70,7 +70,7 @@
               aria-hidden="true"
               focusable="false"
               role="presentation"
-              class="icon icon-youtube w-6 h-6 text-black"
+              class="w-6 h-6 text-black icon icon-youtube"
               viewBox="0 0 21 20"
             >
               <path
@@ -83,9 +83,9 @@
       </ul>
     </div>
     <!-- 底部设置语言 -->
-    <div class="flex items-center justify-center relative my-7">
+    <div class="relative flex items-center justify-center my-7">
       <div
-        class="border border-solid border-gray-300 p-2 flex justify-between"
+        class="flex justify-between p-2 border border-gray-300 border-solid"
         @click="showLanguage = !showLanguage"
       >
         Japanese
@@ -95,7 +95,7 @@
         />
       </div>
       <div
-        class="bg-white p-6 border border-black border-solid absolute -top-28"
+        class="absolute p-6 bg-white border border-black border-solid -top-28"
         v-if="showLanguage"
       >
         <p class="mb-3">English</p>
@@ -105,24 +105,17 @@
     <!-- 底部送信 -->
     <div class="flex items-center justify-center">
       <div>
-        <h4 class="text-theme text-sm leading-normal m0 p0">NewsLetter</h4>
+        <h4 class="text-sm leading-normal text-theme m0 p0">NewsLetter</h4>
         <p class="mt-5 text-sm">
           富久長の最新情報や商品の入荷情報などを、ニュースレターでお知らせしています。
         </p>
-        <div class="mt-4 max-w-lg text-sm leading-7 relative flex flex-1 p-0">
+        <div class="relative flex flex-1 max-w-md p-0 mt-4 text-sm leading-7">
           <input
             type="text"
-            class="
-              text-gray-400
-              w-4/5
-              py-2
-              px-5
-              border border-solid border-gray-300
-              focus:border-gray-300
-            "
+            class="w-4/5 px-5 py-2 text-gray-400 border border-gray-300 border-solid  focus:border-gray-300"
             placeholder="メールアドレス"
           />
-          <button class="w-1/5 tracking-widest bg-yellow-700 text-sm text-white px-7">送信</button>
+          <button class="w-1/5 text-sm tracking-widest text-white bg-yellow-700 px-7">送信</button>
         </div>
       </div>
     </div>
@@ -132,7 +125,7 @@
         src="//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/logo_footer_be642cf4-15eb-45cd-8b9a-f072c80f66b4_240x.png?v=1637120223"
         alt=""
       />
-      <a href="" class="mt-10 text-center text-sm text-theme">©Imada Sake Brewing Co., Ltd.</a>
+      <a href="" class="mt-10 text-sm text-center text-theme">©Imada Sake Brewing Co., Ltd.</a>
     </div>
   </div>
 </template>

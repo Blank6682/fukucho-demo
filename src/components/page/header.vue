@@ -13,13 +13,13 @@
         text-black
         z-50
         sm:h-[72px]
-        lg:px-5
+        md:px-5
       "
       :class="isFixed ? 'fixed' : 'absolute'"
     >
       <!-- logo -->
       <div class="flex items-center justify-center h-full">
-        <a class="block w-[156px] lg:w-[190px]">
+        <a class="block w-[156px] md:w-[190px]">
           <img
             src="//cdn.shopifycdn.net/s/files/1/0587/1052/4079/files/logo_header_white_900x.png?v=1637369622"
             alt=""
@@ -27,7 +27,7 @@
         </a>
       </div>
       <!-- 导航栏 -->
-      <div class="hidden lg:flex">
+      <div class="hidden md:flex">
         <nav class="relative flex h-full">
           <div id="nav-title" v-for="(item, index) in navList" :key="'navTitle' + index">
             <a
@@ -58,7 +58,7 @@
             items-center
             justify-center
             pr-[10px]
-            lg:px-[11px] lg:py-[5px]
+            md:px-[11px] md:py-[5px]
             text-center
             align-middle
           "
@@ -85,7 +85,7 @@
             items-center
             justify-center
             pr-[10px]
-            lg:px-[11px] lg:py-[5px]
+            md:px-[11px] md:py-[5px]
             text-center
             align-middle
           "
@@ -109,7 +109,7 @@
         </a>
         <a
           href=""
-          class="flex items-center justify-center lg:pl-[11px] lg:py-[5px] text-center align-middle"
+          class="flex items-center justify-center md:pl-[11px] md:py-[5px] text-center align-middle"
         >
           <svg
             viewBox="0 0 25 25 "
@@ -147,7 +147,6 @@ const props = defineProps({
     defalut: () => [],
   },
 });
-
 const isFixed = ref(false);
 let el: HTMLElement | null;
 let position: DOMRect | undefined;

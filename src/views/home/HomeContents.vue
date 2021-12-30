@@ -1,7 +1,7 @@
 <template>
   <!-- News -->
   <section>
-    <div class="px-[30px] mx-auto mt-[80px] lg:mt-[120px] lg:max-w-[48vw]">
+    <div class="px-[30px] mx-auto mt-[80px] md:mt-[120px] md:max-w-[48vw]">
       <h2 class="title">News</h2>
       <div
         class="ml-auto border-b border-gray-300 border-solid"
@@ -45,7 +45,7 @@
   </section>
   <!-- Contents -->
   <section>
-    <div class="mt-[120px] mx-[10vw] min-h-[297px]">
+    <div class="mt-20 mx-[30px] min-h-[297px] md:mt-[120px] md:mx-[10vw]">
       <h2 class="title">Contents</h2>
       <template v-for="(item, index) in contents" :key="item.id">
         <ContentIntroduction :item="item" :index="index" />
